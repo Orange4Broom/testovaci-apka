@@ -1,7 +1,7 @@
 export const App = () => {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header>Testovací aplikace React</header>
     </div>
   );
 };

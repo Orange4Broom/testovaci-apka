@@ -31,14 +31,6 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       startDate: '2024-01-23',
       endDate: '2024-01-28',
     },
-    {
-      id: '5',
-      propertyId: 'AS36',
-      name: 'lopatka',
-      state: 'hotová',
-      startDate: '2024-01-24',
-      endDate: '2024-01-29',
-    },
   ],
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/base';
-import { getDateStringFromDate } from '../../../utils/date';
+import { getDateStringFromDate, getLoanDayCount } from '../../../utils/date';
 import { CalendarLoan } from '../CalendarLoan/CalendarLoan';
 import { Property } from '../../../typings/property';
 
@@ -26,7 +26,11 @@ export const CalendarColumn: React.FC<Props> = ({ dateString, property }) => {
         ? loans.map((loan) => {
             return loan.startDate === dateString &&
               loan.propertyId === property.id ? (
-              <CalendarLoan key={loan.id} loan={loan} />
+              <CalendarLoan
+                key={loan.id}
+                loan={loan}
+                loanDayCount={getLoanDayCount(loan.startDate, loan.endDate)}
+              />
             ) : null;
           })
         : null}

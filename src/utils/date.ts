@@ -81,3 +81,9 @@ export const getOffsetDateStringByDayCount = (
   date.setDate(date.getDate() + dayCount);
   return getDateStringFromDate(date);
 };
+
+export const getLoanDayCount = (startDate: string, endDate: string): number => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  return (end.getTime() - start.getTime()) / (1000 * 3600 * 24) + 1;
+};

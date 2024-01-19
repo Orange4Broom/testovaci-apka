@@ -18,4 +18,71 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    width: 100%;
+    padding: 12px;
+
+    header {
+      font-size: 26px;
+      font-weight: 700;
+    }
+  }
 }
+
+.control-calendar__panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 360px;
+  width: 100%;
+  padding: 12px;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 12px;
+    border: 1px solid black;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+  
+    &:hover {
+      scale: 103%;
+    }
+  }
+
+  &__date {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__add-property-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    background: #00a33f;
+    color: #fff;
+    font-weight: 700;
+  
+    &:hover {
+      scale: 103%;
+    }
+  }
+}
+
+

@@ -21,10 +21,10 @@ const INITIAL_STATE: InitialStateDefaultObject = {
   propertyId: '1',
   propertyName: 'bagr',
   state: 'nová',
-  startDate: new Date('2024-01-12').toString(),
-  endDate: new Date('2024-01-28').toString(),
-  calendarStartDate: new Date('2024-01-01T00:00:00').toString(),
-  calendarEndDate: new Date('2024-01-18T00:00:00').toString(),
+  startDate: '2024-01-12',
+  endDate: '2024-01-28',
+  calendarStartDate: '2024-01-01',
+  calendarEndDate: '2024-01-18',
   openedProperties: ['AS34'],
 };
 

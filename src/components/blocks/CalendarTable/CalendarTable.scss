@@ -1,0 +1,67 @@
+.calendar-table {
+  max-width: 1200px;
+  border-collapse: collapse;
+
+  thead {
+    border-bottom: 2px solid black;
+  }
+
+  &__heading {
+    position: relative;
+    height: 50px;
+    width: 68px;
+    border: 1px solid #d7d7d7;
+    text-align: center;
+
+    &--short {
+      position: relative;
+      height: 50px;
+      width: 40px;
+      border: 1px solid #d7d7d7;
+      text-align: center;
+    }
+
+    &--long {
+      position: relative;
+      height: 50px;
+      width: 180px;
+      border: 1px solid #d7d7d7;
+    }
+  }
+
+  &-row {
+    &__cell {
+      position: relative;
+      
+      height: 50px;
+      width: 68px;
+      border: 1px solid #d7d7d7;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+
+      &--short {
+        position: relative;
+        height: 50px;
+        width: 40px;
+        border: 1px solid #d7d7d7;
+        text-align: center;
+      }
+
+      &--long {
+        position: relative;
+        height: 50px;
+        width: 180px;
+        border: 1px solid #d7d7d7;
+        text-align: start;
+        padding: 4px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      &__button {
+        margin: 0 12px;
+      }
+    }
+  }
+}

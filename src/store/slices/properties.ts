@@ -9,27 +9,27 @@ const INITIAL_STATE: InitialStateDefaultObject = {
   properties: [
     {
       id: 'AS34',
-      name: 'bagr',
+      name: 'Bagr',
       parent_id: null,
     },
     {
       id: 'AS35',
-      name: 'kladivo',
+      name: 'Kladivo',
       parent_id: null,
     },
     {
       id: 'AS36',
-      name: 'lopatka',
+      name: 'Lopatka',
       parent_id: null,
     },
     {
       id: 'AS341',
-      name: 'bagr hnědý',
+      name: 'Bagr hnědý',
       parent_id: 'AS34',
     },
     {
       id: 'AS342',
-      name: 'bagr zelený',
+      name: 'Bagr zelený',
       parent_id: 'AS34',
     },
   ],

@@ -28,6 +28,7 @@ export const CalendarColumn: React.FC<Props> = ({ dateString, property }) => {
               loan.propertyId === property.id ? (
               <CalendarLoan
                 key={loan.id}
+                id={loan.id}
                 loan={loan}
                 loanDayCount={getLoanDayCount(loan.startDate, loan.endDate)}
               />

@@ -1,30 +1,43 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
+import { RootState } from '../../../store/base';
+import { CalendarRow } from '../../elements/Calendar/CalendarRow';
 import {
   getDateStringFromDate,
   getDayInfoForInterval,
   getOffsetDateStringByDayCount,
 } from '../../../utils/date';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/base';
+import { useDispatch } from 'react-redux';
+import { updateRootState } from '../../../store/slices/rootStates';
 
 import './CalendarTable.scss';
-import { CalendarRow } from '../../elements/Calendar/CalendarRow';
 
 export const CalendarTable: React.FC = () => {
+  const dispatch = useDispatch();
   const { properties } = useSelector((state: RootState) => state.properties);
-
+  const calendarStartDate = useSelector(
+    (state: RootState) => state.rootState.calendarStartDate
+  );
   const currentDateString = getDateStringFromDate(new Date());
+
   const dayInfo = useMemo(
     () =>
       getDayInfoForInterval(
-        currentDateString,
-        getOffsetDateStringByDayCount(currentDateString, 14)
+        calendarStartDate,
+        getOffsetDateStringByDayCount(calendarStartDate, 14)
       ),
-    [currentDateString]
+    [calendarStartDate]
   );
 
-  console.log(properties);
+  useEffect(() => {
+    dispatch(
+      updateRootState({
+        calendarEndDate: dayInfo[dayInfo.length - 1].dateString,
+      })
+    );
+  }, [dayInfo]);
+
   return (
     <table className="calendar-table">
       <thead>

@@ -13,14 +13,14 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       name: 'bagr',
       state: 'nová',
       startDate: '2024-01-20',
-      endDate: '2024-01-23',
+      endDate: '2024-02-10',
     },
     {
       id: '3',
       propertyId: 'AS35',
       name: 'kladivo',
       state: 'hotová',
-      startDate: '2024-01-21',
+      startDate: '2024-01-16',
       endDate: '2024-01-27',
     },
     {

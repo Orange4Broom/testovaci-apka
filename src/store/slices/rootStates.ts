@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { getDateStringFromDate } from '../../utils/date';
 
 interface InitialStateDefaultObject {
   isAddLoanOpen: boolean;
@@ -23,7 +24,7 @@ const INITIAL_STATE: InitialStateDefaultObject = {
   state: 'nová',
   startDate: '2024-01-12',
   endDate: '2024-01-28',
-  calendarStartDate: '2024-01-01',
+  calendarStartDate: getDateStringFromDate(new Date()),
   calendarEndDate: '2024-01-18',
   openedProperties: ['AS34'],
 };
@@ -36,7 +37,7 @@ export const rootStateSlice = createSlice({
       state,
       action: PayloadAction<Partial<InitialStateDefaultObject>>
     ) => {
-      state = { ...state, ...action.payload };
+      Object.assign(state, action.payload);
     },
   },
 });

@@ -8,35 +8,54 @@ import {
   setColorByLoanState,
   setIconByLoanState,
 } from '../../../utils/state';
+import { getLoanWidthByDate } from '../../../utils/date';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/base';
 
 interface Props {
   id: string;
   loan: Loan;
-  loanDayCount: number;
+  loanStartDate: string;
+  loanEndDate: string;
+  showStatus: boolean;
 }
 
-export const CalendarLoan: React.FC<Props> = ({ id, loan, loanDayCount }) => {
+export const CalendarLoan: React.FC<Props> = ({
+  id,
+  loan,
+  loanStartDate,
+  loanEndDate,
+  showStatus,
+}) => {
+  const calendarEndDate = useSelector(
+    (state: RootState) => state.rootState.calendarEndDate
+  );
+
   return (
     <div
       key={id}
       style={{
-        width: `${loanDayCount * 60}px`,
+        width: `${getLoanWidthByDate(loanStartDate, loanEndDate, calendarEndDate) * 60}px`,
         backgroundColor: setBackgroundColorByLoanState(loan.state),
       }}
       className="loan"
     >
-      <div className="loan__button">
-        <Icon name="xmark" type="fas" color="dark-grey" />
-      </div>
+      {showStatus ? (
+        <>
+          <div className="loan__button">
+            <Icon name="xmark" type="fas" color="dark-grey" />
+          </div>
 
-      <Icon
-        name={setIconByLoanState(loan.state)}
-        type="fas"
-        color={setColorByLoanState(loan.state)}
-      />
-      <p style={{ color: setColorByLoanState(loan.state) }}>
-        {`${loan.state[0].toUpperCase() + loan.state.slice(1)}`}
-      </p>
+          <Icon
+            name={setIconByLoanState(loan.state)}
+            type="fas"
+            color={setColorByLoanState(loan.state)}
+          />
+          <p style={{ color: setColorByLoanState(loan.state) }}>
+            {`${loan.state[0].toUpperCase() + loan.state.slice(1)}`}
+          </p>
+        </>
+      ) : null}
     </div>
   );
 };

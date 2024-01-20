@@ -30,6 +30,46 @@ export const getDayNameByDateString = (dateString: string): string => {
   }
 };
 
+export const getMonthNumberFromDateString = (dateString: string): number => {
+  const date = new Date(dateString);
+  return date.getMonth() + 1;
+};
+
+export const getYearNumberFromDateString = (dateString: string): string => {
+  return dateString.split('-')[0];
+};
+
+export const getMonthNameByDateString = (dateString: string): string => {
+  switch (getMonthNumberFromDateString(dateString)) {
+    case 1:
+      return 'Leden';
+    case 2:
+      return 'Únor';
+    case 3:
+      return 'Březen';
+    case 4:
+      return 'Duben';
+    case 5:
+      return 'Květen';
+    case 6:
+      return 'Červen';
+    case 7:
+      return 'Červenec';
+    case 8:
+      return 'Srpen';
+    case 9:
+      return 'Září';
+    case 10:
+      return 'Říjen';
+    case 11:
+      return 'Listopad';
+    case 12:
+      return 'Prosinec';
+    default:
+      return '';
+  }
+};
+
 /**
  * Converts a Date object to a date string in the format 'YYYY-MM-DD'.
  *
@@ -86,4 +126,24 @@ export const getLoanDayCount = (startDate: string, endDate: string): number => {
   const start = new Date(startDate);
   const end = new Date(endDate);
   return (end.getTime() - start.getTime()) / (1000 * 3600 * 24) + 1;
+};
+
+export const getLoanWidthByDate = (
+  loanStartDate: string,
+  loanEndDate: string,
+  calendarEndDate: string
+): number => {
+  return loanEndDate > calendarEndDate
+    ? getLoanDayCount(loanStartDate, calendarEndDate)
+    : getLoanDayCount(loanStartDate, loanEndDate);
+};
+
+export const getShiftedDate = (
+  forward: boolean,
+  dateString: string,
+  dayCount: number
+): string => {
+  const date = new Date(dateString);
+  date.setDate(forward ? date.getDate() + dayCount : date.getDate() - dayCount);
+  return getDateStringFromDate(date);
 };

@@ -40,6 +40,16 @@
       font-size: 14px;
       font-weight: 700;
 
+      &__button {
+
+        height: 14px;
+        width: 14px;
+        border: 1px solid #88aeb6;
+        color: #88aeb6;
+        font-size: 10px;
+        background: none;
+      }
+
       &--short {
         position: relative;
         height: 50px;

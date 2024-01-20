@@ -4,6 +4,7 @@ import { CalendarColumn } from './CalendarColumn';
 
 import { Property } from '../../../typings/property';
 import { DayInfo } from '../../../typings/date';
+import { Icon } from '../Icon/Icon';
 
 interface Props {
   property: Property;
@@ -16,7 +17,9 @@ const CalendarRow: React.FC<Props> = React.memo(({ property, daysInfo }) => {
       <td className="calendar-table-row__cell--short"></td>
       <td className="calendar-table-row__cell">{property.id}</td>
       <td className="calendar-table-row__cell--long">
-        <button className="calendar-table-row__cell__button">+</button>
+        <button className="calendar-table-row__cell__button">
+          <Icon name="plus" type="fas" color="" />
+        </button>
         {property.name}
       </td>
       {daysInfo.map((day, index) => (

@@ -32,6 +32,11 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       name: 'Bagr zelený',
       parent_id: 'AS34',
     },
+    {
+      id: 'AS37',
+      name: 'Kosa',
+      parent_id: null,
+    },
   ],
 };
 

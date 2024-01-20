@@ -8,15 +8,31 @@ interface InitialStateDefaultObject {
 const INITIAL_STATE: InitialStateDefaultObject = {
   loans: [
     {
+      id: '1',
+      propertyId: 'AS34',
+      name: 'Sekera',
+      state: 'hotová',
+      startDate: '2024-01-21',
+      endDate: '2024-02-04',
+    },
+    {
       id: '2',
       propertyId: 'AS34',
       name: 'bagr',
       state: 'nová',
       startDate: '2024-01-20',
-      endDate: '2024-02-10',
+      endDate: '2024-02-16',
     },
     {
       id: '3',
+      propertyId: 'AS34',
+      name: 'kosa',
+      state: 'v přípravě',
+      startDate: '2024-01-23',
+      endDate: '2024-01-28',
+    },
+    {
+      id: '4',
       propertyId: 'AS35',
       name: 'kladivo',
       state: 'hotová',
@@ -24,9 +40,17 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       endDate: '2024-01-27',
     },
     {
-      id: '4',
+      id: '5',
       propertyId: 'AS36',
       name: 'lopatka',
+      state: 'v přípravě',
+      startDate: '2024-01-23',
+      endDate: '2024-01-28',
+    },
+    {
+      id: '6',
+      propertyId: 'AS37',
+      name: 'kosa',
       state: 'v přípravě',
       startDate: '2024-01-23',
       endDate: '2024-01-28',

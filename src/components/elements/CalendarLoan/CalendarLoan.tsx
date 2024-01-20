@@ -18,6 +18,7 @@ interface Props {
   loanStartDate: string;
   loanEndDate: string;
   showStatus: boolean;
+  top?: number;
 }
 
 export const CalendarLoan: React.FC<Props> = ({
@@ -26,6 +27,7 @@ export const CalendarLoan: React.FC<Props> = ({
   loanStartDate,
   loanEndDate,
   showStatus,
+  top,
 }) => {
   const calendarEndDate = useSelector(
     (state: RootState) => state.rootState.calendarEndDate
@@ -37,6 +39,7 @@ export const CalendarLoan: React.FC<Props> = ({
       style={{
         width: `${getLoanWidthByDate(loanStartDate, loanEndDate, calendarEndDate) * 60}px`,
         backgroundColor: setBackgroundColorByLoanState(loan.state),
+        top: `${top}px`,
       }}
       className="loan"
     >

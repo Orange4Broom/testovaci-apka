@@ -39,6 +39,10 @@
       font-size: 14px;
       font-weight: 700;
 
+      &:hover { 
+        cursor: pointer;
+      }
+
       &__button {
 
         height: 14px;

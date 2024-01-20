@@ -8,7 +8,7 @@ interface InitialStateDefaultObject {
 const INITIAL_STATE: InitialStateDefaultObject = {
   loans: [
     {
-      id: '1',
+      id: '206734f0-f919-4ccb-baea-c69acd588545',
       propertyId: 'AS34',
       name: 'Sekera',
       state: 'hotová',
@@ -16,7 +16,7 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       endDate: '2024-02-04',
     },
     {
-      id: '2',
+      id: '4f49ba91-41ba-46af-87d5-3cf0ea07186a',
       propertyId: 'AS34',
       name: 'bagr',
       state: 'nová',
@@ -24,7 +24,7 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       endDate: '2024-02-16',
     },
     {
-      id: '3',
+      id: 'a993b413-79c3-4f0d-9aee-b4aee3301d61',
       propertyId: 'AS34',
       name: 'kosa',
       state: 'v přípravě',
@@ -32,7 +32,7 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       endDate: '2024-01-28',
     },
     {
-      id: '4',
+      id: 'b6b57ae8-652a-4cba-8abc-dc5e6e5e895f',
       propertyId: 'AS35',
       name: 'kladivo',
       state: 'hotová',
@@ -40,15 +40,15 @@ const INITIAL_STATE: InitialStateDefaultObject = {
       endDate: '2024-01-27',
     },
     {
-      id: '5',
+      id: 'a50ed03a-1d09-4d74-8296-f712b5f86a38',
       propertyId: 'AS36',
       name: 'lopatka',
       state: 'v přípravě',
       startDate: '2024-01-23',
-      endDate: '2024-01-28',
+      endDate: '2024-01-31',
     },
     {
-      id: '6',
+      id: '90f9aaba-20eb-4c4a-a26f-bd1ee3f2b15e',
       propertyId: 'AS37',
       name: 'kosa',
       state: 'v přípravě',
@@ -69,12 +69,12 @@ export const loansSlice = createSlice({
       state,
       action: PayloadAction<{ id: Loan['id']; newLoan: Loan }>
     ) => {
-      state.loans.map((loan) =>
+      state.loans = state.loans.map((loan) =>
         loan.id === action.payload.id ? action.payload.newLoan : loan
       );
     },
     removeLoan: (state, action: PayloadAction<Loan['id']>) => {
-      state.loans.filter((loan) => loan.id !== action.payload);
+      state.loans = state.loans.filter((loan) => loan.id !== action.payload);
     },
   },
 });

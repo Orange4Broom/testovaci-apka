@@ -74,7 +74,7 @@ export const AddPropertyModal: React.FC = () => {
             </select>
           </div>
           <div className="modal__input--wrapper">
-            <label htmlFor="propertyId">Id položky*</label>
+            <label htmlFor="propertyId">Id položky *</label>
             <input
               type="text"
               id="propertyId"
@@ -84,7 +84,7 @@ export const AddPropertyModal: React.FC = () => {
             />
           </div>
           <div className="modal__input--wrapper">
-            <label htmlFor="propertyName">Název položky*</label>
+            <label htmlFor="propertyName">Název položky *</label>
             <input
               type="text"
               id="propertyName"
@@ -107,7 +107,7 @@ export const AddPropertyModal: React.FC = () => {
             className="modal__button--cancel"
             onClick={(e) => closeModal(e)}
           >
-            Zřušit
+            Zrušit
           </button>
         </div>
       </form>

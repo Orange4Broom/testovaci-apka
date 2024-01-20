@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { Loan } from '../../../typings/loan';
 
 import './CalendarLoan.scss';
@@ -11,6 +11,9 @@ import {
 import { getLoanWidthByDate } from '../../../utils/date';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/base';
+import { removeLoan } from '../../../store/slices/loans';
+import { useDispatch } from 'react-redux';
+import { updateRootState } from '../../../store/slices/rootStates';
 
 interface Props {
   id: string;
@@ -29,9 +32,36 @@ export const CalendarLoan: React.FC<Props> = ({
   showStatus,
   top,
 }) => {
+  const dispatch = useDispatch();
   const calendarEndDate = useSelector(
     (state: RootState) => state.rootState.calendarEndDate
   );
+
+  const openModal = (
+    e: MouseEvent,
+    loanArray: Loan[],
+    id: string,
+    loanState: string,
+    loanStartDate: string,
+    loanEndDate: string
+  ) => {
+    e.stopPropagation();
+    dispatch(
+      updateRootState({
+        isUpdateLoanOpen: true,
+        loan: loanArray,
+        loanId: id,
+        state: loanState,
+        startDate: loanStartDate,
+        endDate: loanEndDate,
+      })
+    );
+  };
+
+  const removeLoanById = (e: MouseEvent, id: string) => {
+    e.stopPropagation();
+    dispatch(removeLoan(id));
+  };
 
   return (
     <div
@@ -42,10 +72,16 @@ export const CalendarLoan: React.FC<Props> = ({
         top: `${top}px`,
       }}
       className="loan"
+      onClick={(e) =>
+        openModal(e, [loan], id, loan.state, loan.startDate, loan.endDate)
+      }
     >
       {showStatus ? (
         <>
-          <div className="loan__button">
+          <div
+            className="loan__button"
+            onClick={(e) => removeLoanById(e, loan.id)}
+          >
             <Icon name="xmark" type="fas" color="dark-grey" />
           </div>
 

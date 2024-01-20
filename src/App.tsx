@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './store/base';
 import { updateRootState } from './store/slices/rootStates';
 import { AddPropertyModal } from './components/blocks/Modal/AddPropertyModal';
+import { AddLoanModal } from './components/blocks/Modal/AddLoanModal';
+import { UpdateLoanModal } from './components/blocks/Modal/UpdateLoanModal';
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -37,6 +39,8 @@ export const App: React.FC = () => {
   return (
     <div className="App">
       <AddPropertyModal />
+      <AddLoanModal />
+      <UpdateLoanModal />
       <div className="App__header">
         <header>Testovací aplikace React</header>
 

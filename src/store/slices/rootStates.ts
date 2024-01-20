@@ -1,10 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { getDateStringFromDate } from '../../utils/date';
+import { Loan } from '../../typings/loan';
 
 interface InitialStateDefaultObject {
   isAddPropertyOpen: boolean;
   isAddLoanOpen: boolean;
-  isEditLoanOpen: boolean;
+  isUpdateLoanOpen: boolean;
+  loan: Loan[];
   loanId: string;
   propertyId: string;
   propertyName: string;
@@ -19,7 +21,8 @@ interface InitialStateDefaultObject {
 const INITIAL_STATE: InitialStateDefaultObject = {
   isAddPropertyOpen: false,
   isAddLoanOpen: false,
-  isEditLoanOpen: false,
+  isUpdateLoanOpen: false,
+  loan: [],
   loanId: '1',
   propertyId: '1',
   propertyName: 'bagr',

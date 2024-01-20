@@ -30,6 +30,10 @@ export const App: React.FC = () => {
     dispatch(updateRootState({ calendarStartDate: newDate }));
   };
 
+  const openModal = () => {
+    dispatch(updateRootState({ isAddPropertyOpen: true }));
+  };
+
   return (
     <div className="App">
       <AddPropertyModal />
@@ -77,7 +81,10 @@ export const App: React.FC = () => {
           </button>
         </div>
 
-        <button className="control-calendar__panel__add-property-button">
+        <button
+          className="control-calendar__panel__add-property-button"
+          onClick={() => openModal()}
+        >
           Přidat položku
         </button>
       </div>

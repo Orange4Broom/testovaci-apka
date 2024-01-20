@@ -1,0 +1,144 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.424);
+  z-index: 10;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 400px;
+  width: 100%;
+  height: 600px;
+  padding: 24px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+
+  header {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.modal__inputs__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+
+}
+
+.modal__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+
+  label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #737270;
+  }
+
+  input, select {
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    border: 1px solid #babcbb;
+    border-radius: 4px;
+    outline: none;
+    color: black;
+    ::placeholder {
+      color: #737470;
+    }
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #fdfcfc;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      scale: 103%;
+      border: 2px solid #949292;
+    }
+
+    &:hover {
+      scale: 101%;
+    }
+
+  }
+}
+
+.modal__buttons--wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.modal__button--add {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #26a33e;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    scale: 103%;
+    background-color: #38b551;
+  }
+
+  &:active {
+    scale: 101%;
+    background-color: #208b35;
+  }
+}
+
+.modal__button--cancel {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #e91e63;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    scale: 103%;
+    background-color: #f93878;
+  }
+
+  &:active {
+    scale: 101%;
+    background-color: #cb1b55;
+  }
+}

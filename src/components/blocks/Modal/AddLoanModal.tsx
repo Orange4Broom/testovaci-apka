@@ -1,10 +1,12 @@
 import React, { useState, MouseEvent } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/base';
-import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+
 import { updateRootState } from '../../../store/slices/rootStates';
 import { addLoan } from '../../../store/slices/loans';
-import { v4 as uuidv4 } from 'uuid';
+import { RootState } from '../../../store/base';
+import { useDispatch } from 'react-redux';
+
 import './modal.scss';
 
 export const AddLoanModal: React.FC = () => {

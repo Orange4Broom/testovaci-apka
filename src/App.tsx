@@ -1,18 +1,19 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CalendarTable } from './components/blocks/CalendarTable/CalendarTable';
+import { AddPropertyModal } from './components/blocks/Modal/AddPropertyModal';
+import { AddLoanModal } from './components/blocks/Modal/AddLoanModal';
+import { UpdateLoanModal } from './components/blocks/Modal/UpdateLoanModal';
 import { Icon } from './components/elements/Icon/Icon';
+
+import { RootState } from './store/base';
+import { updateRootState } from './store/slices/rootStates';
 import {
   getMonthNameByDateString,
   getShiftedDate,
   getYearNumberFromDateString,
 } from './utils/date';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './store/base';
-import { updateRootState } from './store/slices/rootStates';
-import { AddPropertyModal } from './components/blocks/Modal/AddPropertyModal';
-import { AddLoanModal } from './components/blocks/Modal/AddLoanModal';
-import { UpdateLoanModal } from './components/blocks/Modal/UpdateLoanModal';
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();

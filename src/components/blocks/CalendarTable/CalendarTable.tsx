@@ -1,26 +1,28 @@
 import React, { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { CalendarRow } from '../../elements/Calendar/CalendarRow';
+import { getSortedProperties } from '../../../utils/property';
 
 import { RootState } from '../../../store/base';
-import { CalendarRow } from '../../elements/Calendar/CalendarRow';
+import { updateRootState } from '../../../store/slices/rootStates';
 import {
   getDateStringFromDate,
   getDayInfoForInterval,
   getOffsetDateStringByDayCount,
 } from '../../../utils/date';
-import { useDispatch } from 'react-redux';
-import { updateRootState } from '../../../store/slices/rootStates';
-import { getSortedProperties } from '../../../utils/property';
 
 import './CalendarTable.scss';
 
 export const CalendarTable: React.FC = () => {
   const dispatch = useDispatch();
+  const currentDateString = getDateStringFromDate(new Date());
+
   const { properties } = useSelector((state: RootState) => state.properties);
   const calendarStartDate = useSelector(
     (state: RootState) => state.rootState.calendarStartDate
   );
-  const currentDateString = getDateStringFromDate(new Date());
 
   const dayInfo = useMemo(
     () =>

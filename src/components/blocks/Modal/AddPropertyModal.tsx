@@ -1,21 +1,29 @@
 import React, { MouseEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+
 import { RootState } from '../../../store/base';
+import { getSortedProperties } from '../../../utils/property';
+
 import { updateRootState } from '../../../store/slices/rootStates';
 import { addProperty } from '../../../store/slices/properties';
+
 import { Property } from '../../../typings/property';
-import { getSortedProperties } from '../../../utils/property';
 
 import './modal.scss';
 
 export const AddPropertyModal: React.FC = () => {
   const dispatch = useDispatch();
-  const rootState = useSelector((state: RootState) => state.rootState);
-  const { properties } = useSelector((state: RootState) => state.properties);
+
   const [parentId, setParentId] = useState<string>('');
   const [propertyId, setPropertyId] = useState<string>('');
   const [propertyName, setPropertyName] = useState<string>('');
+
+  const rootState = useSelector((state: RootState) => state.rootState);
+  const { properties } = useSelector((state: RootState) => state.properties);
+  const { openedProperties } = useSelector(
+    (state: RootState) => state.rootState
+  );
 
   const handleAddProperty = (e: MouseEvent) => {
     e.stopPropagation();
@@ -30,7 +38,14 @@ export const AddPropertyModal: React.FC = () => {
       setParentId('');
       setPropertyId('');
       setPropertyName('');
-      dispatch(updateRootState({ isAddPropertyOpen: false }));
+      dispatch(
+        updateRootState({
+          isAddPropertyOpen: false,
+          openedProperties: !parentId
+            ? [...openedProperties, propertyId]
+            : openedProperties,
+        })
+      );
     } else {
       alert('Vyplňte všechny povinné údaje.');
     }

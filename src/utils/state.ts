@@ -1,3 +1,11 @@
+/**
+ * Sets the icon based on the loan state.
+ *
+ * @param {string} loanState - The state of the loan.
+ *
+ * @returns {string} - The corresponding icon for the given loan state.
+ */
+
 export const setIconByLoanState = (loanState: string) => {
   switch (loanState) {
     case 'nová':
@@ -11,6 +19,13 @@ export const setIconByLoanState = (loanState: string) => {
   }
 };
 
+/**
+ * Sets the color based on the loan state.
+ *
+ * @param {string} loanState - The state of the loan.
+ *
+ * @returns {string} - The corresponding color for the given loan state.
+ */
 export const setColorByLoanState = (loanState: string) => {
   switch (loanState) {
     case 'nová':
@@ -24,6 +39,13 @@ export const setColorByLoanState = (loanState: string) => {
   }
 };
 
+/**
+ * Sets the background color based on the loan state.
+ *
+ * @param {string} loanState - The state of the loan.
+ *
+ * @returns {string} - The corresponding background color for the given loan state.
+ */
 export const setBackgroundColorByLoanState = (loanState: string) => {
   switch (loanState) {
     case 'nová':

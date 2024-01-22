@@ -1,11 +1,13 @@
 import React, { MouseEvent, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { RootState } from '../../../store/base';
-import { useDispatch } from 'react-redux';
 import { updateRootState } from '../../../store/slices/rootStates';
 import { updateLoan } from '../../../store/slices/loans';
-import './modal.scss';
+
 import { Loan } from '../../../typings/loan';
+
+import './modal.scss';
 
 export const UpdateLoanModal: React.FC = () => {
   const dispatch = useDispatch();
@@ -67,7 +69,7 @@ export const UpdateLoanModal: React.FC = () => {
         <header>Úprava zápůjčky {rootState.loanId}</header>
         <div className="modal__inputs__body">
           <div className="modal__input--wrapper">
-            <label htmlFor="parentId">Id rodičovské položky</label>
+            <label htmlFor="parentId">Stav zápůjčky</label>
             <select
               id="parentId"
               value={newState}
@@ -103,7 +105,7 @@ export const UpdateLoanModal: React.FC = () => {
             className="modal__button--add"
             onClick={(e) => handleUpdateLoan(e)}
           >
-            Přidat položku
+            Upravit zápůjčku
           </button>
           <button
             type="button"

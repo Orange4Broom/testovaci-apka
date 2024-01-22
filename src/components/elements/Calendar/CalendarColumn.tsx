@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/base';
-import { getDateStringFromDate } from '../../../utils/date';
-import { CalendarLoan } from '../CalendarLoan/CalendarLoan';
-import { Property } from '../../../typings/property';
-import { getTopValue } from '../../../utils/loan';
-import { useDispatch } from 'react-redux';
-import { updateRootState } from '../../../store/slices/rootStates';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { CalendarLoan } from '../CalendarLoan/CalendarLoan';
+import { getTopValue } from '../../../utils/loan';
+
+import { getDateStringFromDate } from '../../../utils/date';
+import { RootState } from '../../../store/base';
+import { updateRootState } from '../../../store/slices/rootStates';
+import { Property } from '../../../typings/property';
 interface Props {
   dateString: string;
   property: Property;

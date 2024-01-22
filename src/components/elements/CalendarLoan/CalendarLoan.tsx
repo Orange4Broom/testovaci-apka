@@ -1,19 +1,20 @@
 import React, { MouseEvent } from 'react';
 import { Loan } from '../../../typings/loan';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './CalendarLoan.scss';
 import { Icon } from '../Icon/Icon';
+
+import { getLoanWidthByDate } from '../../../utils/date';
+
+import { RootState } from '../../../store/base';
+import { removeLoan } from '../../../store/slices/loans';
+import { updateRootState } from '../../../store/slices/rootStates';
 import {
   setBackgroundColorByLoanState,
   setColorByLoanState,
   setIconByLoanState,
 } from '../../../utils/state';
-import { getLoanWidthByDate } from '../../../utils/date';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/base';
-import { removeLoan } from '../../../store/slices/loans';
-import { useDispatch } from 'react-redux';
-import { updateRootState } from '../../../store/slices/rootStates';
 
 interface Props {
   id: string;

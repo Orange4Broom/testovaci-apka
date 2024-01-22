@@ -122,12 +122,29 @@ export const getOffsetDateStringByDayCount = (
   return getDateStringFromDate(date);
 };
 
+/**
+ * Calculates the number of days between two dates, inclusive.
+ *
+ * @param {string} startDate - The start date of the period.
+ * @param {string} endDate - The end date of the period.
+ *
+ * @returns {number} - The number of days between the start and end dates (inclusive).
+ */
 export const getLoanDayCount = (startDate: string, endDate: string): number => {
   const start = new Date(startDate);
   const end = new Date(endDate);
   return (end.getTime() - start.getTime()) / (1000 * 3600 * 24) + 1;
 };
 
+/**
+ * Calculates the width of a loan on a calendar based on its start and end dates.
+ *
+ * @param {string} loanStartDate - The start date of the loan.
+ * @param {string} loanEndDate - The end date of the loan.
+ * @param {string} calendarEndDate - The end date of the calendar period.
+ *
+ * @returns {number} - The width of the loan in days on the calendar.
+ */
 export const getLoanWidthByDate = (
   loanStartDate: string,
   loanEndDate: string,
@@ -138,6 +155,15 @@ export const getLoanWidthByDate = (
     : getLoanDayCount(loanStartDate, loanEndDate);
 };
 
+/**
+ * Shifts a given date forward or backward by a specified number of days.
+ *
+ * @param {boolean} forward - If true, shifts the date forward; otherwise, shifts it backward.
+ * @param {string} dateString - The input date as a string.
+ * @param {number} dayCount - The number of days to shift the date by.
+ *
+ * @returns {string} - The shifted date as a string.
+ */
 export const getShiftedDate = (
   forward: boolean,
   dateString: string,

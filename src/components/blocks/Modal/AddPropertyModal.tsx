@@ -5,6 +5,7 @@ import { RootState } from '../../../store/base';
 import { updateRootState } from '../../../store/slices/rootStates';
 import { addProperty } from '../../../store/slices/properties';
 import { Property } from '../../../typings/property';
+import { getSortedProperties } from '../../../utils/property';
 
 import './modal.scss';
 
@@ -66,7 +67,7 @@ export const AddPropertyModal: React.FC = () => {
               value={parentId}
               onChange={(e) => setParentId(e.target.value)}
             >
-              {properties.map((property: Property) => (
+              {getSortedProperties(properties).map((property: Property) => (
                 <option key={property.id} value={property.id}>
                   {property.id}
                 </option>

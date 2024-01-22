@@ -10,6 +10,7 @@ import {
 } from '../../../utils/date';
 import { useDispatch } from 'react-redux';
 import { updateRootState } from '../../../store/slices/rootStates';
+import { getSortedProperties } from '../../../utils/property';
 
 import './CalendarTable.scss';
 
@@ -38,6 +39,8 @@ export const CalendarTable: React.FC = () => {
     );
   }, [dayInfo]);
 
+  console.log(getSortedProperties(properties));
+
   return (
     <table className="calendar-table">
       <thead>
@@ -62,8 +65,8 @@ export const CalendarTable: React.FC = () => {
         </tr>
       </thead>
       <tbody className="calendar-table__body">
-        {properties?.length
-          ? properties.map((property) => (
+        {properties
+          ? getSortedProperties(properties).map((property) => (
               <CalendarRow
                 key={property.id}
                 property={property}

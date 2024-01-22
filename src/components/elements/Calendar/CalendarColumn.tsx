@@ -48,18 +48,6 @@ export const CalendarColumn: React.FC<Props> = ({ dateString, property }) => {
       {filteredLoans?.length
         ? filteredLoans.map((loan, index) => {
             const top = getTopValue(filteredLoans, loan);
-            let cellHeight = 0;
-
-            if (
-              (loan.startDate >= calendarStartDate &&
-                loan.endDate <= calendarEndDate) ||
-              (loan.startDate >= calendarStartDate &&
-                loan.endDate > calendarEndDate) ||
-              (loan.startDate < calendarStartDate &&
-                loan.endDate >= calendarStartDate)
-            ) {
-              cellHeight += 34;
-            }
 
             const isLoanToRender =
               loan.startDate < calendarStartDate &&
@@ -72,11 +60,7 @@ export const CalendarColumn: React.FC<Props> = ({ dateString, property }) => {
               loan.endDate >= calendarEndDate;
 
             return (
-              <div
-                key={loan.id}
-                style={{ height: cellHeight }}
-                className="calendar-loan-container"
-              >
+              <React.Fragment key={index}>
                 {loan.startDate === dateString && (
                   <CalendarLoan
                     key={`${loan.id}-start-${index}`}
@@ -110,7 +94,7 @@ export const CalendarColumn: React.FC<Props> = ({ dateString, property }) => {
                     top={top}
                   />
                 )}
-              </div>
+              </React.Fragment>
             );
           })
         : null}

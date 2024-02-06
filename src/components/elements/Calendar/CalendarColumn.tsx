@@ -25,7 +25,8 @@ export const CalendarColumn: React.FC<Props> = ({ dateString, property }) => {
   const openModal = (setDateString: string) => {
     dispatch(
       updateRootState({
-        isAddLoanOpen: true,
+        isLoanOpen: true,
+        shouldAddLoanOpen: true,
         startDate: setDateString,
         propertyId: property.id,
         propertyName: property.name,

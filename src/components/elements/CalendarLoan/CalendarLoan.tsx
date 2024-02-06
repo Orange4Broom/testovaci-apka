@@ -49,7 +49,8 @@ export const CalendarLoan: React.FC<Props> = ({
     e.stopPropagation();
     dispatch(
       updateRootState({
-        isUpdateLoanOpen: true,
+        isLoanOpen: true,
+        shouldAddLoanOpen: false,
         loan: loanArray,
         loanId: id,
         state: loanState,
@@ -68,7 +69,7 @@ export const CalendarLoan: React.FC<Props> = ({
     <div
       key={id}
       style={{
-        width: `${getLoanWidthByDate(loanStartDate, loanEndDate, calendarEndDate) * 60}px`,
+        width: `calc(${getLoanWidthByDate(loanStartDate, loanEndDate, calendarEndDate) * 100}% + ${getLoanWidthByDate(loanStartDate, loanEndDate, calendarEndDate) - 1}px)`,
         backgroundColor: setBackgroundColorByLoanState(loan.state),
         top: `${top}px`,
       }}

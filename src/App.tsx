@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { CalendarTable } from './components/blocks/CalendarTable/CalendarTable';
 import { AddPropertyModal } from './components/blocks/Modal/AddPropertyModal';
-import { AddLoanModal } from './components/blocks/Modal/AddLoanModal';
-import { UpdateLoanModal } from './components/blocks/Modal/UpdateLoanModal';
 import { Icon } from './components/elements/Icon/Icon';
 
+import { LoanModal } from './components/blocks/Modal/LoanModal';
 import { RootState } from './store/base';
 import { updateRootState } from './store/slices/rootStates';
 import {
@@ -40,8 +39,7 @@ export const App: React.FC = () => {
   return (
     <div className="App">
       <AddPropertyModal />
-      <AddLoanModal />
-      <UpdateLoanModal />
+      <LoanModal />
       <div className="App__header">
         <header>Testovací aplikace React</header>
 

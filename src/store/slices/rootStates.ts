@@ -6,8 +6,8 @@ import { Loan } from '../../typings/loan';
 
 interface InitialStateDefaultObject {
   isAddPropertyOpen: boolean;
-  isAddLoanOpen: boolean;
-  isUpdateLoanOpen: boolean;
+  isLoanOpen: boolean;
+  shouldAddLoanOpen: boolean;
   loan: Loan[];
   loanId: string;
   propertyId: string;
@@ -22,8 +22,8 @@ interface InitialStateDefaultObject {
 
 const INITIAL_STATE: InitialStateDefaultObject = {
   isAddPropertyOpen: false,
-  isAddLoanOpen: false,
-  isUpdateLoanOpen: false,
+  isLoanOpen: false,
+  shouldAddLoanOpen: false,
   loan: [],
   loanId: '1',
   propertyId: '1',
